@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href=".css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="botones">
+            <table>
+                <tr class="Titulo_y_pantalla">
+                    <th colspan="4">una calculadora uwu</th>
+                    
+                </tr>
+                <tr class="pantalla">
+                    <td colspan="4" class="pantalla">0</td>
+                </tr>
+
+                <tr class="primeraFilaDeBotnes">
+                    <td class="numero">7</td>
+                    <td class="numero">8</td>
+                    <td class="numero">9</td>
+                    <td class="eliminar_todo">CE</td>
+                </tr>
+                <tr class="segundaFilaDeBotnes">
+                    <td class="numero">4</td>
+                    <td class="numero">5</td>
+                    <td class="numero">6</td>
+                    <td class="operador">-</td>
+                </tr>
+                <tr class="terceraFilaDeBotones">
+                    <td class="numero">1</td>
+                    <td class="numero">2</td>
+                    <td class="numero">3</td>
+                    <td class="operador">+</td>
+                </tr>
+                <tr>
+                    <td class="operador">/</td>
+                    <td class="operador">*</td>
+                    <td class="decimal">.</td>
+                    <td class="igual">=</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="numero">0</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pantalla = document.querySelector('.pantalla');
+            const resultado = document.querySelector('.resultado');
+            const botones = document.querySelectorAll('.numero, .operador, .decimal, .eliminar_todo, .igual');
+
+            let operacionActual = '';
+            let resultadoCalculado = false;
+
+            botones.forEach((boton) => {
+                boton.addEventListener('click', () => {
+                    const valorBoton = boton.textContent;
+
+                    if (valorBoton === 'CE') {
+                        operacionActual = '';
+                    } else if (valorBoton === '=') {
+                        try {
+                            operacionActual = eval(operacionActual);
+                            resultadoCalculado = true;
+                        } catch (error) {
+                            operacionActual = 'Error';
+                        }
+                    } else {
+                        if (resultadoCalculado) {
+                            operacionActual = valorBoton;
+                            resultadoCalculado = false;
+                        } else {
+                            operacionActual += valorBoton;
+                        }
+                    }
+
+                    pantalla.textContent = operacionActual;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

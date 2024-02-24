@@ -1,0 +1,55 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+
+    
+
+    background-image: url('memesito.png');
+    background-size: cover; 
+    background-position: center; 
+    color: white; 
+
+
+}
+h1{
+    color: blue; font-size: 30px;
+    text-align: center;
+}
+
+p {
+    color: rgba(255, 0, 0, 0.5);
+}
+.all {
+    text-align: center;
+}
+table, tr, th, td{
+    border: 5px solid black;
+}
+table{
+    background-color: rgb(36, 36, 36);
+}
+.calculator {
+    margin-top: 20px; 
+}
+
+.pantalla .resultado {
+    font-size: 24px; 
+    height: 50px; 
+    line-height: 50px; 
+}
+.pantalla{
+    background-color: rgb(41, 54, 54);
+}
+.numero{
+    background-color: aquamarine;
+    color: black;
+}
+.operador, .decimal, .igual{
+    background-color: blueviolet;
+}
+.Titulo_y_pantalla{
+    background-color: rgb(36, 36, 36);
+}
